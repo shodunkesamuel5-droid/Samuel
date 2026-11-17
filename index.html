@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shodunke Samuel | CRM & Automation Specialist</title>
+<meta name="description" content="CRM & Automation Specialist and AI Agent Developer with 4 years of remote experience in GoHighLevel, Make, Zapier and n8n.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== THEME: change --accent / --accent-2 to recolour the whole site ===== */
+:root{
+  --accent:#8b5cf6;      /* main colour (violet) */
+  --accent-2:#d946ef;    /* secondary glow (fuchsia) */
+  --accent-ink:#ffffff;  /* text on accent buttons */
+}
+[data-theme="dark"]{
+  --bg:#0a0a0a; --bg-2:#111111; --card:#0f0f10; --fg:#fafafa; --fg-2:#d4d4d8; --muted:#8b8b94; --line:#232326; --line-2:#2e2e33;
+  --btn-bg:#fafafa; --btn-fg:#0a0a0a; --head:rgba(10,10,10,.82); --bar-track:#1f1f23;
+}
+[data-theme="light"]{
+  --bg:#fafafa; --bg-2:#ffffff; --card:#ffffff; --fg:#0a0a0a; --fg-2:#27272a; --muted:#6b6b76; --line:#e7e7ea; --line-2:#d9d9de;
+  --btn-bg:#0a0a0a; --btn-fg:#fafafa; --head:rgba(250,250,250,.85); --bar-track:#e7e7ea;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+main{flex:1}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:var(--head);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;gap:16px}
+.logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13px;letter-spacing:-.02em;position:relative;color:var(--fg)}
+.logo::before{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px dashed var(--muted);animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.menu{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+.menu a{transition:color .2s}
+.menu a:hover{color:var(--fg)}
+.menu a.on{color:var(--fg);font-weight:600}
+.right{display:flex;gap:10px;align-items:center;justify-content:flex-end}
+.icon-btn{width:34px;height:34px;display:grid;place-items:center;border:none;background:none;color:var(--fg-2);cursor:pointer;border-radius:50%;transition:background .2s}
+.icon-btn:hover{background:var(--bg-2)}
+.icon-btn svg{width:17px;height:17px}
+.lang{border:1px solid var(--line-2);background:none;border-radius:999px;padding:5px 11px;font:600 12px Inter,sans-serif;color:var(--fg);cursor:pointer;transition:border-color .2s}
+.lang:hover{border-color:var(--fg)}
+select.lang{appearance:none;-webkit-appearance:none;padding-right:26px;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238b8b94' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 9px center}
+.lang option{background:var(--bg-2);color:var(--fg)}
+.burger{display:none}
+@media(max-width:820px){
+  .nav{grid-template-columns:auto 1fr}
+  .menu{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:6px 24px 12px}
+  .menu.open{display:flex}
+  .menu a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .burger{display:grid}
+}
+
+/* ---------- common ---------- */
+.page{padding:72px 0 110px;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ph1{font-size:clamp(34px,5vw,46px);font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.sub{color:var(--muted);font-size:17px;margin-top:10px}
+.ph{margin-bottom:56px}
+.shead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:28px}
+.shead h2{font-size:22px;font-weight:700;letter-spacing:-.015em}
+.vall{font-size:14px;color:var(--muted);display:inline-flex;gap:6px;transition:color .2s,gap .2s;white-space:nowrap}
+.vall:hover{color:var(--fg);gap:9px}
+hr.div{border:none;border-top:1px solid var(--line);margin:0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;border:1px solid var(--line-2);transition:all .2s;cursor:pointer;background:none;color:var(--fg);font-family:inherit}
+.btn.w{background:var(--btn-bg);color:var(--btn-fg);border-color:var(--btn-bg)}
+.btn.w:hover{opacity:.88;transform:translateY(-1px)}
+.btn.o:hover{border-color:var(--fg)}
+.btn.a{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 8px 28px -10px var(--accent)}
+.btn.a:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn svg{width:16px;height:16px}
+.back{display:inline-flex;gap:6px;color:var(--muted);font-size:14px;margin-bottom:32px;transition:color .2s}
+.back:hover{color:var(--fg)}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:3px 10px;border-radius:999px;border:1px solid var(--line-2);color:var(--fg-2);font-weight:500}
+.tag i{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0}
+.tag.n{color:var(--muted)}
+section.blk{padding:88px 0}
+
+/* ---------- hero ---------- */
+.hero{padding:96px 0 104px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.viz{max-width:320px;margin:0 auto}}
+.hi{font-size:16px;color:var(--muted);margin-bottom:12px}
+.hi b{color:var(--fg);font-weight:600}
+.hero h1{font-size:clamp(36px,5.2vw,54px);line-height:1.1;letter-spacing:-.03em;font-weight:700}
+.hero p.lead{font-size:17px;color:var(--muted);max-width:560px;margin:22px 0 30px;line-height:1.7}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+
+/* animated visual */
+.viz{width:112%;margin-left:-6%;aspect-ratio:1;position:relative}
+@media(max-width:860px){.viz{width:100%;margin:0 auto}}
+.viz svg{width:100%;height:100%;overflow:visible}
+.viz .pane{fill:url(#paneGrad);stroke:var(--accent);stroke-opacity:.45;filter:url(#glow)}
+.viz .vbar{fill:var(--fg);opacity:.75;animation:rise 4.5s ease-in-out infinite;transform-box:fill-box}
+@keyframes rise{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(-22px);opacity:.9}}
+.viz .spin3d{transform-box:view-box;transform-origin:150px 150px;animation:turn 9s ease-in-out infinite}
+@keyframes turn{0%{transform:rotate(0) scaleX(1)}25%{transform:rotate(8deg) scaleX(.82)}50%{transform:rotate(0) scaleX(1)}75%{transform:rotate(-8deg) scaleX(.9)}100%{transform:rotate(0) scaleX(1)}}
+.viz .outer{fill:none;stroke:var(--fg);stroke-width:1.6;opacity:.9}
+.viz .mid{fill:none;stroke:var(--accent);stroke-width:1.2;opacity:.9}
+.viz .core{fill:var(--accent);opacity:.55;filter:url(#glow)}
+.viz .core2{fill:#fff;opacity:.35}
+.viz .orbit{fill:none;stroke:var(--accent-2);stroke-width:1.6;opacity:.9;transform-box:view-box;transform-origin:150px 150px;animation:orb 6s ease-in-out infinite}
+@keyframes orb{0%,100%{transform:rotate(-7deg) scaleY(1)}50%{transform:rotate(7deg) scaleY(.6)}}
+.viz .spark{fill:var(--accent-2);animation:tw 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes tw{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+.viz .spike{stroke:var(--accent-2);stroke-width:1.4;opacity:.8}
+
+/* ---------- resume card ---------- */
+.resume{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:22px;padding:34px 30px;border-radius:14px;border:1px solid color-mix(in srgb,var(--accent) 22%,var(--line));background:radial-gradient(120% 140% at 100% 100%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 55%),linear-gradient(135deg,var(--bg-2),var(--card));box-shadow:0 0 60px -30px var(--accent)}
+.resume .lbl{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.resume h3{font-size:22px;font-weight:700;margin:6px 0 6px}
+.resume p{color:var(--fg-2);font-size:14px}
+
+/* ---------- project cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:960px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.tgrid{grid-template-columns:1fr}}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.tstars{color:#f59e0b;letter-spacing:2px;font-size:15px}.tstars span{color:var(--fg);font-weight:700;letter-spacing:0;margin-left:6px;font-size:13px}
+.tq{color:var(--fg-2);line-height:1.65;font-size:15px;flex:1}
+.tmeta{font-size:13px;color:var(--muted);line-height:1.5}.tmeta b{display:block;color:var(--fg);font-weight:600;margin-bottom:2px}
+.ttags{display:flex;flex-wrap:wrap;gap:6px}.ttags span{font-size:12px;padding:4px 10px;border:1px solid var(--line-2);border-radius:999px;color:var(--muted)}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+.cat{padding:8px 16px;border:1px solid var(--line-2);border-radius:999px;background:transparent;color:var(--muted);font:600 13px/1 inherit;font-family:inherit;cursor:pointer;transition:.15s}
+.cat:hover{color:var(--fg);border-color:var(--fg)}
+.cat.on{background:var(--btn-bg);color:var(--btn-fg);border-color:var(--btn-bg)}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card);display:flex;flex-direction:column;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 16px 40px -24px rgba(0,0,0,.6)}
+.thumb{display:block;aspect-ratio:16/9.5;position:relative;overflow:hidden;background:#000}
+.cover{position:absolute;inset:0;transition:transform .6s}
+.card:hover .cover{transform:scale(1.05)}
+.cover svg{width:100%;height:100%;display:block}
+.feat{position:absolute;top:10px;left:10px;z-index:2;font-size:11px;font-weight:600;padding:3px 9px;border-radius:6px;background:rgba(0,0,0,.72);color:#fff;backdrop-filter:blur(4px)}
+.cb{padding:16px 16px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.cb h3{font-size:15.5px;font-weight:600;line-height:1.35}
+.cb p{font-size:13.5px;color:var(--muted);flex:1;line-height:1.6}
+
+/* ---------- core skill tiles ---------- */
+.tiles{display:flex;flex-wrap:wrap;gap:12px}
+.tile{width:84px;height:84px;border:1px solid var(--line);border-radius:10px;background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:transform .2s,border-color .2s}
+.tile:hover{transform:translateY(-3px);border-color:var(--line-2)}
+.tile span{font-size:10.5px;color:var(--muted);text-align:center;line-height:1.2;max-width:76px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mono{width:28px;height:28px;border-radius:6px;display:grid;place-items:center;font-size:11px;font-weight:800;letter-spacing:-.02em}
+
+/* ---------- post rows ---------- */
+.prow{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:18px 0;transition:opacity .2s}
+.prow h3{font-size:16px;font-weight:600;transition:color .2s}
+.prow time{font-size:13px;color:var(--muted);display:block;margin-top:2px}
+.arr{color:var(--muted);transition:transform .2s,color .2s;flex-shrink:0}
+.prow:hover h3{text-decoration:underline;text-underline-offset:4px}
+.prow:hover .arr,.pi:hover .arr{transform:translateX(4px);color:var(--fg)}
+.pi{display:flex;justify-content:space-between;gap:24px;padding:26px 0}
+.pi time{font-size:13px;color:var(--muted)}
+.pi h3{font-size:19px;font-weight:700;margin:6px 0 8px;letter-spacing:-.01em}
+.pi:hover h3{text-decoration:underline;text-underline-offset:4px}
+.pi p{font-size:14.5px;color:var(--muted);margin-bottom:12px;max-width:620px}
+.empty{padding:28px;border:1px dashed var(--line-2);border-radius:12px;color:var(--muted);text-align:center}
+
+/* ---------- about ---------- */
+.about-top{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;margin-bottom:24px}
+@media(max-width:860px){.about-top{grid-template-columns:1fr}}
+.about-top .intro{font-size:17px;color:var(--fg-2);line-height:1.75}
+.about{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+.about h2{font-size:22px;font-weight:700;margin-bottom:16px}
+.about p{margin-bottom:16px;color:var(--muted);line-height:1.75}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.values{grid-template-columns:1fr}}
+.val{border:1px solid var(--line);border-radius:10px;padding:18px;background:var(--card)}
+.val h3{font-size:15px;font-weight:600;margin-bottom:6px}
+.val p{font-size:13.5px;margin:0;line-height:1.6}
+.panel{border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--card);position:sticky;top:88px}
+.kv{display:flex;flex-direction:column;gap:18px;margin-bottom:22px}
+.kv dt{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:7px}
+.kv dt svg{width:14px;height:14px}
+.kv dd{font-size:15px;font-weight:600;margin-top:3px;word-break:break-word}
+.dlcv{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;transition:color .2s}
+.dlcv:hover{color:var(--accent)}
+.dlcv svg{width:16px;height:16px}
+
+/* ---------- skills ---------- */
+.scat{margin-bottom:56px}
+.scat h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:18px}
+.sk{margin-bottom:20px}
+.sk .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.sk .nm{display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600}
+.sk .nm em{font-style:normal;font-weight:400;font-size:12.5px;color:var(--muted)}
+.sk .pc{font-size:12.5px;color:var(--muted)}
+.sk .mono{width:18px;height:18px;border-radius:4px;font-size:8px}
+.bar{height:3px;border-radius:99px;background:var(--bar-track);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.sk.plain{padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:14px}
+
+/* ---------- experience ---------- */
+.job{position:relative;padding-left:30px;padding-bottom:56px}
+.dot{position:absolute;left:0;top:7px;width:11px;height:11px;border-radius:50%;background:var(--fg);box-shadow:0 0 0 4px color-mix(in srgb,var(--fg) 12%,transparent);cursor:default}
+.dot .tip{position:absolute;left:22px;top:50%;transform:translateY(-50%);background:var(--fg);color:var(--bg);font-size:12px;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;z-index:3}
+@media(min-width:861px){.dot:hover .tip{opacity:1}}
+.jh{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
+.job h3{font-size:18px;font-weight:700}
+.jd{font-size:13px;color:var(--muted);white-space:nowrap}
+.jm{font-size:14.5px;color:var(--fg-2);margin:2px 0 12px}
+.jm span{color:var(--muted);font-size:13px}
+.job p{color:var(--muted);margin-bottom:14px;font-size:14.5px}
+.job ul{list-style:none;margin-bottom:16px}
+.job li{padding-left:18px;position:relative;margin-bottom:7px;font-size:14px;color:var(--fg-2)}
+.job li::before{content:"›";position:absolute;left:2px;top:-1px;color:var(--muted)}
+
+/* ---------- detail / article ---------- */
+.narrow{max-width:760px}
+.fullshot{overflow:hidden;border:1px solid var(--line);border-radius:14px;background:var(--card)}.fullshot img{display:block;width:100%}
+.hero-img{aspect-ratio:21/9;border-radius:14px;overflow:hidden;position:relative;margin-bottom:32px;border:1px solid var(--line)}
+.detail h1{font-size:clamp(28px,4.4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+.lede{font-size:17px;color:var(--muted);margin:12px 0 22px}
+.dsec{margin-top:40px}
+.dsec h2{font-size:20px;font-weight:700;margin-bottom:12px}
+.dsec p{color:var(--fg-2);line-height:1.75}
+.article h2{font-size:22px;font-weight:700;margin:40px 0 12px}
+.article p{color:var(--fg-2);margin-bottom:16px;font-size:16px;line-height:1.8}
+.article hr{border:none;border-top:1px solid var(--line);margin:28px 0}
+.article :not(pre)>code{background:var(--bg-2);border:1px solid var(--line);padding:1px 6px;border-radius:5px;font-size:.88em}
+.article pre{background:#0d0d10;border:1px solid var(--line);color:#e4e4e7;padding:18px 20px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.6;margin-bottom:18px}
+.byline{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+.byline b{color:var(--fg)}
+
+/* ---------- contact ---------- */
+form{display:flex;flex-direction:column;gap:20px;max-width:540px}
+label{font-size:14px;font-weight:600;display:block;margin-bottom:7px}
+input,textarea{width:100%;padding:11px 14px;border:1px solid var(--line-2);border-radius:8px;font:14.5px Inter,sans-serif;color:var(--fg);background:var(--card);transition:border-color .2s,box-shadow .2s}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.7}
+input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+textarea{min-height:150px;resize:vertical}
+.err{font-size:13px;color:#f87171;margin-top:5px;display:none}
+.bad .err{display:block}.bad input,.bad textarea{border-color:#f87171}
+.ok{display:none;padding:16px 18px;border-radius:10px;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));background:color-mix(in srgb,var(--accent) 12%,transparent);font-weight:500;max-width:540px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:40px 0 44px}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.foot b{font-size:15px;font-weight:600}
+.foot small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.fl{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.fl a:hover{color:var(--fg)}
+.copy{width:100%;color:var(--muted);font-size:12.5px}
+
+
+/* real icons (brand: Simple Icons, general: Lucide); letter badge is the fallback */
+.ico{display:inline-grid;place-items:center;background:#fff;border-radius:7px;flex-shrink:0;overflow:hidden;position:relative}
+.ico img{width:66%;height:66%;object-fit:contain;display:block}
+.ico b{display:none;font-size:.38em;font-weight:800;letter-spacing:-.02em;line-height:1}
+.ico img[src$="gohighlevel.png"]{width:100%;height:100%;object-fit:cover}
+.ico.fb{background:color-mix(in srgb,var(--fc) 18%,transparent)}
+.ico.fb img{display:none}.ico.fb b{display:block;color:var(--fc)}
+.tile .ico{width:32px;height:32px;font-size:32px}
+.sk .ico{width:20px;height:20px;font-size:20px;border-radius:5px}
+.tag .ico{width:15px;height:15px;font-size:15px;border-radius:4px;margin-left:-3px}
+
+
+.hero-vid{border-radius:14px;overflow:hidden;margin-bottom:32px;border:1px solid var(--line);background:#000}
+.hero-vid video{width:100%;display:block}
+.vbadge{position:absolute;top:10px;right:10px;z-index:2;font-size:11px;font-weight:600;padding:3px 9px;border-radius:6px;background:var(--accent);color:#fff}
+.impl{list-style:none}.impl li{position:relative;padding-left:20px;margin-bottom:8px;color:var(--fg-2)}
+.impl li::before{content:"›";position:absolute;left:4px;color:var(--accent);font-weight:700}
+.dsec p+p{margin-top:12px}
+
+
+.hero-photo{position:relative;justify-self:end;width:100%;max-width:380px;aspect-ratio:3/4;border-radius:18px;overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 8%,transparent),0 30px 80px -30px var(--accent)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 65%,color-mix(in srgb,var(--bg) 35%,transparent));pointer-events:none}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block}
+@media(max-width:860px){.hero-photo{justify-self:center;max-width:300px}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.page{animation:none}.viz *{animation:none!important}.logo::before{animation:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="logo" id="logo">SS</a>
+    <nav class="menu" id="menu"></nav>
+    <div class="right">
+      <button class="icon-btn" id="theme" aria-label="Toggle theme"></button>
+      <select class="lang" id="lang" aria-label="Language"><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option></select>
+      <button class="icon-btn burger" id="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap foot">
+    <div><b id="fname"></b><small id="fbuilt"></small></div>
+    <nav class="fl" id="flinks"></nav>
+    <small class="copy" id="fcopy"></small>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   CONTENT — everything Samuel edits lives in this block
+   Source: Samuel_Shodunke_Resume_Original_CRM_AI.pdf
+   ========================================================= */
+const SITE = {
+  name: "Shodunke Samuel",
+  initials: "SS",
+  title: "CRM & Automation Specialist and AI Agent Developer",
+  highlight: "AI Agent Developer",
+  intro: "I build CRM systems, sales funnels, marketing automations, AI agents and integrations, turning business processes into reliable, automated systems. Four years of remote experience across GoHighLevel, Make, Zapier and n8n.",
+  aboutIntro: "CRM & Automation Specialist and AI Agent Developer with 4 years of remote experience, focused on turning business processes into reliable, automated systems.",
+  journey: [
+    "I studied Computer Science at the University of Ibadan, graduating with a B.Sc. in 2023.",
+    "Since 2022 I've worked remotely as a freelance CRM & Automation Specialist, designing CRM systems, pipelines, forms, workflows and lead-nurturing sequences for online businesses.",
+    "Most of my work is in GoHighLevel (HighLevel): funnels, landing pages, email/SMS workflows, payment flows, memberships and client onboarding systems.",
+    "I also build conversational and voice AI agents for lead qualification, customer support, appointment scheduling, routing and follow-up, and I connect business apps through Make.com, Zapier, n8n, webhooks, APIs and databases so customer data stays in sync."
+  ],
+  values: [
+    ["Workflow Mapping", "Translating business requirements into clear technical workflows before building."],
+    ["Automation Testing", "Testing every automation and troubleshooting issues before it goes live."],
+    ["Documentation", "Documenting processes so clients understand and can maintain their systems."],
+    ["Client Communication", "Working remotely and independently while keeping clients in the loop."]
+  ],
+  profile: {
+    experience: "4 Years",
+    location: "Lagos, Nigeria (Remote)",
+    education: "B.Sc. Computer Science, University of Ibadan (2023)",
+    languages: "English",
+    status: "Open to remote projects",
+    email: "shodunkesamuel4@gmail.com",
+    phone: "+234 708 311 4946"
+  },
+  photo: "images/samuel.jpg",          // hero photo on the home page (empty = animated graphic)
+  resumeUrl: "resume.pdf",
+  contactEmail: "shodunkesamuel4@gmail.com",  // contact-form messages are emailed here (via FormSubmit)
+  whatsapp: "2347083114946",                  // backup contact button, digits only with country code
+  formWebhook: "",            // optional: GoHighLevel inbound webhook URL for the contact form
+  showBlog: false,            // false = hide the Blog page, menu link, footer link and home "Recent Posts"
+  showSamples: false          // false = hide all 14 sample projects and 12 sample posts
+};
+
+/* Skills: [name] shows the skill only. To show a bar like the reference, use [name, years, percent]. */
+const SKILLS = [
+  { cat: "CRM & Platforms", items: [["GoHighLevel (HighLevel)"],["CRM Architecture"],["Pipeline Setup"],["Memberships & Courses"],["Other CRM Platforms"]] },
+  { cat: "Automation", items: [["Workflow Automation"],["Marketing Automation"],["Lead Generation & Nurturing"],["Appointment & Follow-up Automation"],["Make.com"],["Zapier"],["n8n"]] },
+  { cat: "AI", items: [["AI Agent Development"],["Conversational AI"],["Voice AI"],["AI Automation Workflows"]] },
+  { cat: "Sales", items: [["Sales Funnels"],["Landing Pages"],["Email / SMS Automation"]] },
+  { cat: "Integrations", items: [["Webhooks"],["API Integrations"],["Stripe / Payment Workflows"],["Databases"],["Git / GitHub"]] },
+  { cat: "Admin & Support", items: [["Virtual Assistance"],["Client Communication"],["Remote Collaboration"]] }
+];
+const HOME_SKILLS = ["GoHighLevel","CRM Architecture","Workflow Automation","AI Agent Development","Conversational AI","Voice AI","Sales Funnels","Email / SMS Automation","Make.com","Zapier","n8n","Webhooks & APIs","Stripe"];
+
+const EXPERIENCE = [
+  { role:"CRM & Automation Specialist", co:"Freelance", loc:"Remote", from:"2022", to:"Present",
+    sum:"Building CRM systems, funnels, automations, AI agents and integrations for online businesses.",
+    pts:["Design and implement CRM systems, pipelines, forms, workflows, automations, lead-nurturing sequences and appointment processes for online businesses",
+         "Build GoHighLevel funnels, landing pages, forms, pipelines, email/SMS workflows, payment flows, memberships and client onboarding systems",
+         "Develop and configure conversational and voice AI agents for lead qualification, customer support, appointment scheduling, routing and follow-up",
+         "Connect business applications through Make.com, Zapier, n8n, webhooks, APIs and databases to reduce manual work and keep customer data synchronized",
+         "Work remotely with clients, translate business requirements into technical workflows, test automations, troubleshoot issues and document processes"],
+    tags:["GoHighLevel","AI Agents","Make.com","Zapier","n8n","Webhooks"] }
+];
+
+/* Optional per project: img:"images/your-file.jpg" shows a real photo instead of the generated artwork. */
+const PROJECTS = [
+  { slug:"munoz-construction-website", img:"images/munoz-construction-website.jpg", poster:"images/munoz-construction-website-poster.jpg", video:"videos/munoz-construction-website.mp4",
+    t:"Munoz Construction – Contractor Website",
+    d:"Lead-focused website for a general contractor in Bayard, NM, with call and free-estimate buttons, services and reviews.",
+    tags:["Lovable","Website Design","Forms"],
+    ov:["A website for Munoz Construction, a family-operated general contractor in Bayard, New Mexico, built with Lovable. The site has Home, About, Services and Contact pages. The home page opens with a hero that leads with a Call button and a Request Free Estimate button, followed by the main services, customer reviews and a closing call-to-action.",
+        "The About page tells the company’s story, the Services page covers remodeling, additions and carpentry, and the Contact page has a project request form, business hours, payment methods and a Get directions link that opens the location in Google Maps."],
+    impl:["Designed the home page hero with Call and Request Free Estimate calls-to-action.","Built the About and Services pages, covering remodeling, additions and carpentry.","Built a Contact page with a project request form (name, phone, email, project details), business hours and payment methods.","Linked the business address to Google Maps for directions.","Added a trust bar, a customer reviews section and a closing call-to-action."] },
+  { slug:"dermatology-clinic-landing-page", img:"images/dermatology-landing-page-cover.jpg", poster:"images/dermatology-landing-page.jpg", video:"videos/dermatology-landing-page.mp4",
+    t:"Dermatology Clinic Landing Page with Offer Popup & Booking Calendar",
+    d:"GoHighLevel landing page with a 10% offer popup form, services, FAQ and an embedded booking calendar.",
+    tags:["GoHighLevel","Landing Pages","Forms","Calendars"],
+    ov:["A landing page for a dermatology clinic, built in GoHighLevel. The hero leads with a “Claim 10% Off Any Service” call-to-action that opens a popup lead form collecting first name, last name, phone and email.",
+        "Below the hero, the page presents the clinic’s services (medical dermatology, cosmetic dermatology, skin rejuvenation and hair restoration), an FAQ section, and a booking calendar where visitors can schedule a consultation."],
+    impl:["Built the hero section with a 10% offer call-to-action.","Set up a popup lead-capture form (name, phone, email) opened from the offer buttons.","Laid out service sections for medical dermatology, cosmetic dermatology, skin rejuvenation and hair restoration.","Added an FAQ section answering common skin-care questions.","Added a booking calendar for scheduling consultations."] },
+  { slug:"eye-care-clinic-website", img:"images/eyecare-website-cover.jpg", poster:"images/eyecare-website.jpg", video:"videos/eyecare-website.mp4",
+    t:"Eye Care Clinic Website",
+    d:"Multi-section GoHighLevel website for an eye-care clinic with services, eyewear, gallery and a contact form.",
+    tags:["GoHighLevel","Website Design","Forms"],
+    ov:["A multi-section website for an eye-care clinic, built in GoHighLevel. It opens with a “See the World Clearly With Expert Care” hero and a Get in Touch button, then moves through key figures, a “Your Trusted Eye Care Partner” section, services (eye exams, vision testing and prescription glasses), a premium eyewear section, an optical gallery and an Instagram section.",
+        "The navigation covers Home, About Us, Our Services and Contact Us, and a contact form lets visitors get in touch."],
+    impl:["Designed the hero section with calls-to-action for visitors to get in touch.","Built the services section for eye exams, vision testing and prescription glasses.","Added a premium eyewear section and an optical photo gallery.","Added an About Us section and an Instagram section.","Added a contact form and site navigation."] },
+  { slug:"roofing-company-website", img:"images/apex-roofing-website-cover.jpg", poster:"images/apex-roofing-website.jpg", video:"videos/apex-roofing-website.mp4",
+    t:"Apex Roofing – Roofing Company Website",
+    d:"Roofing company website built around a free-inspection offer, with services, process steps and a request form.",
+    tags:["Website Design","Forms"],
+    ov:["A website for a roofing company, Apex Roofing Solutions, built around a free-inspection offer. The page opens with a “Your Roof. Done Right.” hero and a Free Inspection button, then shows trust figures, services (including emergency service, gutter systems and solar-ready roofing), a four-step process, the roofing materials used, and a request form."],
+    impl:["Designed the hero with a Free Inspection call-to-action and a navigation bar showing the phone number.","Added a trust-figures bar and a services section.","Laid out the four-step process: free inspection, detailed estimate, expert installation and final walkthrough.","Added a materials section.","Built a free-inspection request form (property type, service needed, notes) with contact details and service hours."] },
+  { slug:"customer-followup-email-nurturing", img:"images/customer-followup-email-nurturing.jpg", video:"videos/customer-followup-email-nurturing.mp4",
+    t:"GoHighLevel Automated Customer Follow-Up & Email Nurturing Workflow",
+    d:"Email follow-up workflow with timed delays, reply-based branching and internal notifications to keep follow-up consistent.",
+    tags:["GoHighLevel","CRM Automation","Workflow Builder","Conditional Logic","Email Automation"],
+    ov:["Designed and implemented an automated email follow-up workflow in GoHighLevel (GHL) to manage contact communication and improve follow-up consistency.",
+        "The workflow uses timed delays and conditional logic to evaluate contacts and determine the appropriate next action. Based on the conditions met, such as whether the contact replied, contacts are directed through different automation paths, where they receive scheduled email follow-ups or the team is alerted with an internal notification."],
+    impl:["Configured workflow triggers and timed delays.","Built conditional branches to evaluate contact conditions.","Set up automated email follow-up actions.","Created separate workflow paths based on conditions.","Configured additional waiting periods between follow-ups."],
+    outcome:"Established a structured follow-up system that automates contact communication, reduces manual intervention, and helps maintain consistent engagement." },
+  { slug:"conditional-followup-email-nurturing", img:"images/conditional-followup-email-nurturing.jpg", video:"videos/conditional-followup-email-nurturing.mp4",
+    t:"GoHighLevel Conditional Follow-Up & Email Nurturing Automation",
+    d:"Conditional email nurturing workflow using timed delays and branching logic to decide each contact's next step.",
+    tags:["GoHighLevel","Workflow Automation","Conditional Logic","Email Marketing Automation"],
+    ov:["Designed and implemented a conditional email nurturing workflow in GoHighLevel to manage contacts through an automated follow-up process.",
+        "The workflow uses timed delays and conditional logic to determine the appropriate next action for each contact. After an initial 24-hour waiting period, contacts are evaluated against specific conditions and directed into different workflow paths.",
+        "Depending on the conditions met, the automation triggers email communication, schedules additional follow-up intervals, or removes contacts from the workflow when they meet the required criteria."],
+    impl:["Configured timed delays using GoHighLevel Wait actions.","Built conditional branches to segment contacts based on specific criteria.","Set up automated email follow-up actions.","Configured additional waiting periods between follow-ups.","Implemented workflow removal actions to prevent unnecessary automation.","Created separate automation paths to handle different contact conditions."],
+    outcome:"Developed a structured follow-up system that automates contact communication, responds to different contact conditions, and reduces the need for manual follow-up management." },
+  { slug:"automated-lead-capture-nurturing", img:"images/automated-lead-capture-nurturing.jpg", video:"videos/lead-nurture-workflow.mp4",
+    t:"Automated Lead Capture & Nurturing System",
+    d:"Facebook Lead Ads and website forms feeding one GoHighLevel CRM, with automatic tagging, pipelines and email/SMS follow-up.",
+    tags:["GoHighLevel","Facebook Lead Ads","CRM Automation","Workflow Builder","Email & SMS Automation"],
+    ov:["Designed and implemented an automated lead management and nurturing system using GoHighLevel (GHL), integrating Facebook Lead Ads and website contact forms with a centralized CRM.",
+        "The automation captures incoming leads, automatically creates or updates contact records, and organizes prospects using CRM tags and pipelines.",
+        "When a new lead enters the system, automated email and SMS sequences are triggered to acknowledge inquiries, maintain engagement, and nurture prospects throughout their customer journey."],
+    impl:["Facebook Lead Ads and website form integration.","Automated lead capture and CRM contact management.","Contact tagging and pipeline organization.","Automated email and SMS follow-up sequences.","Lead nurturing and engagement workflows.","Structured follow-up to reduce missed opportunities."],
+    outcome:"Streamlined lead management, eliminated manual data entry, improved response times, and established a consistent follow-up process to help convert prospects into customers." },
+  { slug:"hvac-ai-lead-qualification", img:"images/hvac-ai-lead-qualification.jpg", video:"videos/hvac-ai-agent-demo.mp4", poster:"images/hvac-ai-agent-demo.jpg", sound:true, t:"GoHighLevel HVAC AI Lead Qualification & Appointment Automation", d:"Lead-qualification system covering service type, issue, urgency, emergency handling, booking and follow-up.", i:"bot",
+    tags:["GoHighLevel","Conversational AI","Custom Fields","Pipelines","Calendars","Workflows"],
+    ov:"An HVAC lead-qualification system covering service type, issue, urgency, emergency handling, appointment booking, pipeline movement and follow-up automation.",
+    role:"Designed the qualification system and built the logic for emergency cases, standard repair qualification, custom fields, appointment-status conditions, and automated customer and internal notifications.",
+    ch:"The system had to be safe to run unattended. It was configured never to quote or guess service prices, and to respect opt-out / do-not-contact requirements." },
+  { slug:"coaching-onboarding-automation", img:"images/coaching-onboarding-automation.jpg", t:"GoHighLevel Coaching Onboarding Automation", d:"Onboarding automation that reduced manual onboarding workload by approximately 50%.", i:"route",
+    tags:["GoHighLevel","Pipelines","Workflows","Client Communication"],
+    ov:"Onboarding automation for a coaching business, reducing manual onboarding workload by approximately 50%.",
+    role:"Structured the CRM stages, follow-up workflows, client communications and automated task progression.",
+    ch:"Onboarding steps were handled manually. Moving them into structured CRM stages with automated task progression took about half of that manual work off the team." },
+  { slug:"conversational-ai-lead-engagement", img:"images/conversational-ai-lead-engagement.jpg", t:"Conversational AI Lead Engagement System", d:"Conversational automation built to improve lead engagement, with a reported ~40% increase.", i:"chat",
+    tags:["Conversational AI","GoHighLevel","Lead Nurturing"],
+    ov:"Conversational automation designed to improve lead engagement for a client workflow.",
+    role:"Implemented the conversational automation.",
+    ch:"The goal was more engaged leads. The client workflow reported an increase of approximately 40% in lead engagement." },
+  { slug:"voice-ai-roofing", img:"images/voice-ai-roofing.jpg", t:"Voice AI Agent – Roofing", d:"Voice AI agent for roofing leads with 24/7 call coverage, scheduling and routing.", i:"phone",
+    tags:["Voice AI","Appointment Scheduling","Call Routing"],
+    ov:"A voice AI agent for handling roofing leads around the clock.",
+    role:"Configured the agent's 24/7 call coverage, appointment scheduling, call routing and roofing-specific qualification logic.",
+    ch:"Roofing leads need industry-specific qualification. The agent was given roofing-specific qualification logic so calls are routed and booked correctly." },
+  { slug:"hvac-followup-billing", img:"images/hvac-followup-billing.jpg", t:"HVAC Follow-up & Client Billing Automations", d:"Conditional follow-up for unbooked HVAC leads and a status-based client billing pipeline.", i:"cal",
+    tags:["GoHighLevel","Email Sequences","Pipelines","Tags","Billing"],
+    ov:"Follow-up for HVAC leads who didn't book, plus a billing pipeline for client accounts.",
+    role:"Built conditional follow-up logic for unbooked HVAC leads, including timed email sequences and pipeline/tag updates, and structured the client billing pipeline.",
+    ch:"Billing status had to be visible at a glance. The pipeline is organised around Active/Paid, Payment Due Soon, Past Due and On Hold/Cancelled states, each with a matching status tag." },
+  { slug:"multi-platform-content-automation", img:"images/multi-platform-content-automation.jpg", t:"Multi-Platform Content Automation", d:"Automation that turns source content into captioned social videos and schedules publishing.", i:"video",
+    tags:["Google Drive","JSON2Video","OpenAI Whisper","Metricool","APIs"],
+    ov:"An automation workflow that turns source content into captioned social videos and schedules them for publication.",
+    role:"Built the workflow using Google Drive, JSON2Video, OpenAI Whisper, Metricool and API-based processing.",
+    ch:"Several separate tools had to work as one pipeline. API-based processing passes content from Drive through transcription and video generation to scheduled publishing." }
+];
+
+/* SAMPLE projects (placeholder content, not from the resume). Shown after the real ones. Replace or delete as real work comes in. */
+const SAMPLE_PROJECTS = [
+  { slug:"ai-receptionist", img:"images/ai-receptionist.jpg", t:"24/7 AI Receptionist", d:"Voice and Conversation AI that answers calls and chats, qualifies leads and books appointments.", i:"bot", tags:["GoHighLevel","Voice AI","Conversation AI","Calendars","Workflows","Twilio"],
+    ov:"A service business was missing calls after hours and on busy days. Every missed call was a lost job.", role:"Planned the call flow, wrote the agent prompts, connected the calendar and built the follow-up workflows.", ch:"The agent had to book real appointments without double-booking. I limited it to live calendar slots and added a human handoff for anything outside its scope." },
+  { slug:"no-show-recovery", img:"images/no-show-recovery.jpg", t:"No-Show Recovery System", d:"Automated reminders, confirmations and rebooking to keep the calendar full.", i:"cal", tags:["GoHighLevel","Workflows","SMS","Email","Calendars"],
+    ov:"Appointments were being booked but too many people didn't show up.", role:"Designed the reminder sequence and the no-show rebooking flow.", ch:"Reminders had to feel personal, not spammy. I used spaced timing and a two-way confirmation reply that updates the appointment status automatically." },
+  { slug:"lead-to-job-pipeline", img:"images/lead-to-job-pipeline.jpg", t:"Lead-to-Job Pipeline", d:"End-to-end CRM pipeline that moves a lead from enquiry to quote, booking and completed job.", i:"route", tags:["GoHighLevel","CRM & Pipelines","Stripe","Workflows","Reviews"],
+    ov:"Leads came from five places and were tracked in a spreadsheet.", role:"Built the pipeline stages, triggers and the review request at the end.", ch:"Each lead source needed its own entry point. I unified them with a single intake workflow and source tags." },
+  { slug:"ivr-call-routing", img:"images/ivr-call-routing.jpg", t:"IVR & Call Routing", d:"Phone menu and smart routing for a multi-location business.", i:"phone", tags:["GoHighLevel","IVR","Phone System","Workflows"],
+    ov:"Callers were reaching the wrong location and hanging up.", role:"Mapped the call tree and built the IVR inside GoHighLevel.", ch:"Routing had to respect each location's opening hours. I added time-based branches with voicemail-to-SMS after hours." },
+  { slug:"assessment-quiz-funnel", img:"images/assessment-quiz-funnel.jpg", t:"Assessment Quiz Funnel", d:"Lead-generation quiz that segments prospects and starts a matching nurture sequence.", i:"funnel", tags:["Funnels","Quizzes","Email","Tags","Ad Tracking"],
+    ov:"A new brand needed leads and a way to tell them apart.", role:"Built the quiz, scoring logic and three nurture paths.", ch:"Scoring had to map answers to segments cleanly. I used tags per answer group and a workflow that picks the highest-scoring path." },
+  { slug:"webinar-funnel", img:"images/webinar-funnel.jpg", t:"Webinar Registration Funnel", d:"Registration, reminders and replay sequence for a live webinar.", i:"video", tags:["Funnels","Email","SMS","Workflows"],
+    ov:"A coach wanted more live attendees, not just sign-ups.", role:"Built the funnel pages and the attendance-boosting reminder flow.", ch:"Time zones caused missed sessions. I sent reminders in the contact's own time zone." },
+  { slug:"reputation-engine", img:"images/reputation-engine.jpg", t:"Review Request Engine", d:"Automated review requests after each completed job, with feedback routing.", i:"star", tags:["Reputation","Workflows","SMS"],
+    ov:"Happy customers rarely left reviews unless asked.", role:"Built the request flow and the private-feedback branch.", ch:"Timing mattered. Requests go out a few hours after job completion, with one gentle reminder." },
+  { slug:"crm-migration", img:"images/crm-migration.jpg", t:"CRM Migration to GoHighLevel", d:"Moved contacts, pipelines and automations from several tools into one account.", i:"move", tags:["Migration","HubSpot","Zapier","CRM & Pipelines"],
+    ov:"A business was paying for four tools that didn't talk to each other.", role:"Planned and ran the migration, then rebuilt the automations natively.", ch:"Custom fields didn't match between systems. I built a field map and ran a test import before the full move." },
+  { slug:"ai-chat-widget", img:"images/ai-chat-widget.jpg", t:"Website AI Chat Agent", d:"Conversation AI on the website that answers FAQs and captures contact details.", i:"chat", tags:["Conversation AI","Knowledge Base","Chat Widget"],
+    ov:"The website got traffic but few enquiries.", role:"Trained the bot on the business FAQ and connected it to the pipeline.", ch:"The bot needed to know when to stop. I added clear handoff triggers for pricing and complaints." },
+  { slug:"membership-portal", img:"images/membership-portal.jpg", t:"Course & Membership Portal", d:"Course delivery with gated access, drip content and payment.", i:"book", tags:["Memberships","Stripe","Funnels","Email"],
+    ov:"A creator was selling a course through scattered links.", role:"Set up the offer, checkout and member onboarding.", ch:"Access had to unlock right after payment. I tied the offer grant to the Stripe payment trigger." },
+  { slug:"facebook-lead-ads", img:"images/facebook-lead-ads.jpg", t:"Facebook Lead Ads Integration", d:"Instant follow-up for leads coming from Facebook ads.", i:"zap", tags:["Facebook Lead Ads","Workflows","SMS"],
+    ov:"Ad leads waited hours for a reply and went cold.", role:"Connected the lead forms and built the instant-response flow.", ch:"Speed was everything. Leads get an SMS within a minute and the team gets an internal alert." },
+  { slug:"custom-code-landing-page", img:"images/custom-code-landing-page.jpg", t:"Custom-Code Landing Page", d:"Responsive HTML/CSS landing page inside a GHL custom code element.", i:"code", tags:["HTML / CSS","JavaScript","Custom Code Elements"],
+    ov:"The client's design couldn't be built with the standard page builder.", role:"Hand-coded the page and embedded it in GoHighLevel.", ch:"It had to look right on every screen. I built it mobile-first and tested on several devices." },
+  { slug:"make-automation", img:"images/make-automation.jpg", t:"Make Scenario for Order Updates", d:"Make scenario syncing orders from an external store into GHL.", i:"flow", tags:["Make","Webhooks","GoHighLevel"],
+    ov:"Order data lived outside the CRM.", role:"Built the Make scenario and the GHL webhook triggers.", ch:"Duplicate contacts were being created. I matched on email and phone before creating anything new." },
+  { slug:"snapshot-template", img:"images/snapshot-template.jpg", t:"Reusable Client Snapshot", d:"A ready-to-install snapshot for faster onboarding of new client accounts.", i:"layers", tags:["Snapshots","Workflows","Funnels","Pipelines"],
+    ov:"Every new client build started from zero.", role:"Packaged my best workflows, pages and pipelines into one snapshot.", ch:"It had to work for different niches. I kept niche-specific text in custom values so it's easy to change." }
+];
+if (SITE.showSamples) PROJECTS.push(...SAMPLE_PROJECTS);
+
+/* Blog posts. Empty until Samuel writes his first one. Example:
+  { slug:"my-first-post", date:"2026-11-20", t:"Title", ex:"One-line summary", tags:["GoHighLevel"],
+    intro:"Opening paragraph.", sections:[["1. Heading","Paragraph text. Use `backticks` for inline code.","optional code block"]] }
+*/
+const POSTS = [];
+
+/* SAMPLE posts (placeholder content). Shown after any real posts above. */
+const SAMPLE_POSTS = [
+  { slug:"speed-to-lead", date:"2026-11-02", t:"Why Speed to Lead Matters More Than Your Ad Spend", ex:"The first five minutes after a form fill decide most deals. Here's how to respond instantly in GoHighLevel.", tags:["Lead Nurturing","Workflows"] },
+  { slug:"conversation-vs-voice-ai", date:"2026-10-18", t:"Conversation AI vs Voice AI: Which One First?", ex:"A simple way to decide which AI agent a small business should set up first.", tags:["Conversation AI","Voice AI"] },
+  { slug:"workflow-naming", date:"2026-10-05", t:"A Naming System for GHL Workflows That Scales", ex:"How I name workflows, tags and custom fields so any account stays readable.", tags:["Workflows","Best Practices"] },
+  { slug:"webhooks-explained", date:"2026-09-21", t:"Webhooks Explained for GoHighLevel Builders", ex:"What a webhook actually is and how to use inbound and outbound webhooks.", tags:["Webhooks","Integrations"] },
+  { slug:"no-show-playbook", date:"2026-09-07", t:"My No-Show Reduction Playbook", ex:"The reminder timing and confirmation flow I use on every booking build.", tags:["Calendars","SMS"] },
+  { slug:"snapshots-guide", date:"2026-08-24", t:"A Practical Guide to GHL Snapshots", ex:"When to use snapshots, what to include and what to leave out.", tags:["Snapshots"] },
+  { slug:"ai-prompting-agents", date:"2026-08-10", t:"Prompting AI Agents That Don't Go Off-Script", ex:"Prompt patterns that keep AI agents helpful, accurate and on brand.", tags:["Prompt Engineering","AI"] },
+  { slug:"zapier-vs-make", date:"2026-07-27", t:"Zapier vs Make for GoHighLevel Integrations", ex:"Cost, flexibility and reliability compared for typical GHL use cases.", tags:["Zapier","Make"] },
+  { slug:"pipeline-design", date:"2026-07-13", t:"Designing Pipelines Your Client Will Actually Use", ex:"Fewer stages, clear triggers and why the sales team should name them.", tags:["CRM & Pipelines"] },
+  { slug:"migration-checklist", date:"2026-06-29", t:"My CRM Migration Checklist", ex:"The step-by-step list I follow so no contact or automation gets lost.", tags:["Migration"] },
+  { slug:"review-requests", date:"2026-06-15", t:"Automating Review Requests the Right Way", ex:"Timing, wording and handling unhappy customers privately.", tags:["Reputation"] },
+  { slug:"custom-code-elements", date:"2026-06-01", t:"Using Custom Code Elements in GHL Pages", ex:"How to embed hand-coded sections without breaking the page builder.", tags:["HTML / CSS","Custom Code Elements"] }
+];
+function postBody(p){
+  return {
+    intro:`${p.ex} In this post I'll walk through the approach I use on real client builds, what tends to go wrong, and how to set it up yourself.`,
+    sections:[
+      ["1. The problem", "Most businesses already have the tools. What's missing is a clear system connecting them, so leads and tasks slip through the gaps."],
+      ["2. How I approach it", "I start by mapping the journey on paper: where the contact comes from, what should happen next, and who needs to know. Only then do I open GoHighLevel.", `{\n  "trigger": "Form Submitted",\n  "actions": ["Add Tag: new-lead", "Send SMS", "Create Opportunity"]\n}`],
+      ["3. Building it in GoHighLevel", "Build one small piece, test it with a dummy contact, then add the next. Use `Wait` steps and `If/Else` branches deliberately, and name everything clearly."],
+      ["4. Testing before launch", "Run every path with a test contact, including the edge cases. Check the contact's activity log to confirm each step fired."],
+      ["5. Handing it over", "A short Loom video and a one-page SOP go a long way. The client should understand what the system does without calling you."],
+      ["Final Thoughts", "Good automation feels invisible. Keep it simple, test it properly, and it will quietly do its job every day."]
+    ]
+  };
+}
+if (SITE.showSamples) POSTS.push(...SAMPLE_POSTS.map(p=>({...p,...postBody(p)})));
+
+/* ===================== UI TEXT (EN / FR) ===================== */
+const T = {
+  en:{nav:["Home","About","Skills","Experience","Projects","Blog","Contact"],hi:"Hi, I'm",vp:"View Projects",git:"Get in Touch",resume:"Resume",pdf:"PDF · English",resumeTxt:"Download the full PDF of my career, projects, and technical background.",dl:"Download Resume",fp:"Featured Projects",vap:"View All Projects",cs:"Core Skills",vas:"View All Skills",rp:"Recent Posts",vapo:"View All Posts",
+      about:"About Me",journey:"My Journey",values:"What I Value",exp:"Experience",loc:"Location",edu:"Education",langs:"Languages",status:"Status",email:"Email",phone:"Phone",cv:"Download CV",
+      skills:"Skills",skSub:"Technologies and tools I work with",yrs:"yrs",expSub:"My professional journey",present:"Present",
+      projects:"Projects",prSub:"Things I've built",featured:"Featured",back:"← Back to Projects",stack:"Tech Stack",overview:"Overview",role:"My Role",cs2:"Challenges & Solutions",impl:"What I Implemented",outcome:"Project Outcome",video:"Video",
+      blog:"Blog",blSub:"Thoughts on CRM, automation and AI agents",backBlog:"← Back to Blog",by:"Written by",
+      contact:"Contact",ctSub:"Have a project in mind? Let's talk.",name:"Name",msg:"Message",phName:"Your name",phEmail:"your@email.com",phMsg:"Tell me about your project or just say hi...",send:"Send Message",sending:"Sending…",req:"This field is required",bademail:"Enter a valid email",sent:"Almost done! Your email app has opened with your message ready. Just press Send there.",okSent:"Thanks! Your message has been sent. I'll get back to you soon.",fail:"Couldn't send from this page. Please reach me directly:",wa:"WhatsApp",noapp:"Email app didn't open? Use one of these:",gmail:"Open in Gmail",copy:"Copy message",copied:"Copied ✓",orEmail:"Or email directly:",
+      built:"Built with HTML, CSS & JavaScript",rights:"All rights reserved.",nf:"Page not found",home:"Go home",noposts:"First posts coming soon."},
+  fr:{nav:["Accueil","À propos","Compétences","Expérience","Projets","Blog","Contact"],hi:"Bonjour, je suis",vp:"Voir les projets",git:"Me contacter",resume:"CV",pdf:"PDF · Anglais",resumeTxt:"Téléchargez le PDF complet de mon parcours, de mes projets et de mes compétences techniques.",dl:"Télécharger le CV",fp:"Projets à la une",vap:"Tous les projets",cs:"Compétences clés",vas:"Toutes les compétences",rp:"Articles récents",vapo:"Tous les articles",
+      about:"À propos",journey:"Mon parcours",values:"Mes valeurs",exp:"Expérience",loc:"Lieu",edu:"Formation",langs:"Langues",status:"Statut",email:"E-mail",phone:"Téléphone",cv:"Télécharger le CV",
+      skills:"Compétences",skSub:"Les technologies et outils que j'utilise",yrs:"ans",expSub:"Mon parcours professionnel",present:"Aujourd'hui",
+      projects:"Projets",prSub:"Ce que j'ai construit",featured:"À la une",back:"← Retour aux projets",stack:"Technologies",overview:"Aperçu",role:"Mon rôle",cs2:"Défis et solutions",impl:"Ce que j'ai mis en place",outcome:"Résultat du projet",video:"Vidéo",
+      blog:"Blog",blSub:"Réflexions sur le CRM, l'automatisation et les agents IA",backBlog:"← Retour au blog",by:"Écrit par",
+      contact:"Contact",ctSub:"Un projet en tête ? Parlons-en.",name:"Nom",msg:"Message",phName:"Votre nom",phEmail:"vous@email.com",phMsg:"Parlez-moi de votre projet ou dites simplement bonjour...",send:"Envoyer",sending:"Envoi…",req:"Ce champ est obligatoire",bademail:"Adresse e-mail invalide",sent:"Presque fini ! Votre messagerie s'est ouverte avec votre message. Il ne reste qu'à cliquer sur Envoyer.",okSent:"Merci ! Votre message a bien été envoyé. Je vous réponds rapidement.",fail:"Envoi impossible depuis cette page. Contactez-moi directement :",wa:"WhatsApp",noapp:"La messagerie ne s'est pas ouverte ? Utilisez une de ces options :",gmail:"Ouvrir dans Gmail",copy:"Copier le message",copied:"Copié ✓",orEmail:"Ou écrivez directement à :",
+      built:"Conçu en HTML, CSS & JavaScript",rights:"Tous droits réservés.",nf:"Page introuvable",home:"Accueil",noposts:"Premiers articles bientôt."}
+,es:{nav:["Inicio","Acerca de","Habilidades","Experiencia","Proyectos","Blog","Contacto"],hi:"Hola, soy",vp:"Ver proyectos",git:"Contáctame",resume:"CV",pdf:"PDF · Inglés",resumeTxt:"Descarga el PDF completo con mi trayectoria, proyectos y experiencia técnica.",dl:"Descargar CV",fp:"Proyectos destacados",vap:"Ver todos los proyectos",cs:"Habilidades principales",vas:"Ver todas las habilidades",rp:"Publicaciones recientes",vapo:"Ver todas las publicaciones",
+about:"Sobre mí",journey:"Mi trayectoria",values:"Lo que valoro",exp:"Experiencia",loc:"Ubicación",edu:"Formación",langs:"Idiomas",status:"Estado",email:"Correo",phone:"Teléfono",cv:"Descargar CV",
+skills:"Habilidades",skSub:"Tecnologías y herramientas con las que trabajo",yrs:"años",expSub:"Mi trayectoria profesional",present:"Actualidad",
+projects:"Proyectos",prSub:"Cosas que he construido",featured:"Destacado",back:"← Volver a proyectos",stack:"Tecnologías",overview:"Resumen",role:"Mi función",cs2:"Retos y soluciones",impl:"Lo que implementé",outcome:"Resultado del proyecto",video:"Video",
+blog:"Blog",blSub:"Ideas sobre CRM, automatización y agentes de IA",backBlog:"← Volver al blog",by:"Escrito por",
+contact:"Contacto",ctSub:"¿Tienes un proyecto en mente? Hablemos.",name:"Nombre",msg:"Mensaje",phName:"Tu nombre",phEmail:"tu@correo.com",phMsg:"Cuéntame sobre tu proyecto o simplemente saluda...",send:"Enviar mensaje",sending:"Enviando…",req:"Este campo es obligatorio",bademail:"Introduce un correo válido",sent:"¡Casi listo! Se abrió tu aplicación de correo con el mensaje. Solo pulsa Enviar.",okSent:"¡Gracias! Tu mensaje ha sido enviado. Te responderé pronto.",fail:"No se pudo enviar desde esta página. Contáctame directamente:",wa:"WhatsApp",noapp:"¿No se abrió el correo? Usa una de estas opciones:",gmail:"Abrir en Gmail",copy:"Copiar mensaje",copied:"Copiado ✓",orEmail:"O escríbeme a:",
+built:"Creado con HTML, CSS y JavaScript",rights:"Todos los derechos reservados.",nf:"Página no encontrada",home:"Ir al inicio",noposts:"Las primeras publicaciones llegarán pronto."}
+};
+
+/* ===================== PROJECT CATEGORIES =====================
+   Each real project gets a category here (by slug). Categories with no projects are hidden automatically.
+   To add a project to a category: PCAT["your-slug"]="funnels"  (automation | ai | funnels | integrations) */
+const PCAT={"automated-lead-capture-nurturing":"automation","hvac-ai-lead-qualification":"ai","coaching-onboarding-automation":"automation","conversational-ai-lead-engagement":"ai","voice-ai-roofing":"ai","hvac-followup-billing":"automation","multi-platform-content-automation":"automation","conditional-followup-email-nurturing":"automation","customer-followup-email-nurturing":"automation","dermatology-clinic-landing-page":"funnels","eye-care-clinic-website":"funnels","roofing-company-website":"funnels","munoz-construction-website":"funnels"};
+PROJECTS.forEach(p=>{if(!p.cat)p.cat=PCAT[p.slug]||p.cat});
+/* ORDER RULE: projects with a video always come first, image-only projects after. Within each group the order stays as listed in PROJECTS
+   (newest first). This runs automatically, so a new video project jumps ahead of image projects without any manual reordering. */
+PROJECTS.sort((a,b)=>(b.video?1:0)-(a.video?1:0));
+const CATORDER=["automation","ai","funnels","integrations"];
+const CATL={en:{all:"All",automation:"Automation",ai:"AI Agents",funnels:"Sales Funnels & Websites",integrations:"Integrations"},
+fr:{all:"Tous",automation:"Automatisation",ai:"Agents IA",funnels:"Tunnels de vente & sites web",integrations:"Intégrations"},
+es:{all:"Todos",automation:"Automatización",ai:"Agentes de IA",funnels:"Embudos de venta y sitios web",integrations:"Integraciones"}};
+const VA={en:"View all",fr:"Voir tout",es:"Ver todo"},SOON={en:"Projects coming soon.",fr:"Projets bientôt disponibles.",es:"Proyectos próximamente."};
+const soon=()=>`<div class="rv" style="padding:34px 24px;border:1px dashed var(--line-2);border-radius:14px;color:var(--muted);text-align:center">${SOON[lang]||SOON.en}</div>`;
+const catGrid=(c,max)=>{let l=PROJECTS.filter(p=>c==="all"||p.cat===c);if(max)l=l.slice(0,max);return l.length?`<div class="grid">${l.map(card).join("")}</div>`:soon()};
+const homeCats=()=>CATORDER.map(c=>`<section class="blk"><div class="wrap"><div class="shead rv"><h2>${(CATL[lang]||CATL.en)[c]}</h2><a class="vall" href="#projects" onclick="pickCat('${c}')">${VA[lang]||VA.en} →</a></div>${catGrid(c,3)}</div></section>`).join('<hr class="div">');
+let pcat="all";
+window.pickCat=c=>{pcat=c};
+window.setCat=c=>{pcat=c;const y=window.scrollY;render();window.scrollTo(0,y)};
+const catBar=()=>{const have=CATORDER;const L=CATL[lang]||CATL.en;
+ return `<div class="cats" role="tablist">${["all",...have].map(c=>`<button class="cat ${pcat===c?"on":""}" onclick="setCat('${c}')">${L[c]}</button>`).join("")}</div>`};
+
+/* ===================== CLIENT TESTIMONIALS (Upwork) =====================
+   Review text is copied word for word from the client's Upwork review. Newest first. d = "YYYY-MM" (end of contract).
+   Entries ending in "…" were cut off by Upwork's "See more": replace q with the full text when available. */
+const TESTIMONIALS=[
+{q:"Clear roadmap to build go high level a2p, automations and review of lead sources. Reasonable pricing and quick turnaround.",title:"30 minute consultation",d:"2026-08",tags:["Clear Communicator","Detail Oriented"]},
+{q:"Samuel went above and beyond my project requirements and found the best way to do everything. We’re ending the contract because the project is complete, but I’m really glad to…",title:"GHL Live Event Registration Flow",d:"2026-07",tags:["Committed to Quality","Detail Oriented","Accountable for Outcomes"]},
+{q:"Samuel has excellent troubleshooting skills. Fixed our GoHighLevel workflow problems fast and made sure everything was working properly before delivery.",title:"Fix GoHighLevel Workflow Issues",d:"2026-05",tags:["Committed to Quality","Solution Oriented","Clear Communicator"]},
+{q:"Samuel delivered exactly what we needed for this project. He built a complete funnel and automation system that is well-structured and easy to manage. Everything was tested and working properly before handover, and he was responsive throughout the process. The system has improved how we capture and follow up with leads. Overall, a very smooth experience.",title:"GoHighLevel Funnel & Automation Expert Needed to Build Advanced CRM + Automation System",d:"2026-04",tags:["Committed to Quality","Clear Communicator","Accountable for Outcomes"]},
+{q:"I had a great experience working with Samuel. He delivered excellent results, was always available, and met all my expectations and deadlines. Communication was smooth throughout the project, and everything…",title:"GHL Funnel & Automation Expert",d:"2026-02",tags:["Reliable","Collaborative","Committed to Quality"]},
+{q:"Excellent work from Samuel, he’s very skilled and reliable. He handled the GHL AI setup smoothly and delivered exactly what I needed.",title:"GoHighLevel AI Agent Setup & Automation Specialist",d:"2025-11",tags:["Reliable","Committed to Quality","Solution Oriented"]}
+];
+const TT={en:["Client Testimonials","Selected 5-star reviews from Upwork","Upwork review"],fr:["Témoignages de clients","Sélection d’avis 5 étoiles sur Upwork","Avis Upwork"],es:["Testimonios de clientes","Reseñas de 5 estrellas seleccionadas de Upwork","Reseña de Upwork"]};
+const testi=()=>{const x=TT[lang]||TT.en,loc=({fr:"fr-FR",es:"es-ES"}[lang]||"en-US");
+ return `<section class="blk"><div class="wrap"><div class="shead rv"><div><h2>${x[0]}</h2><p class="sub" style="margin-top:6px">${x[1]}</p></div></div><div class="tgrid">${TESTIMONIALS.map(r=>`<div class="tcard rv"><div class="tstars">★★★★★<span>5.0</span></div><p class="tq">“${esc(r.q)}”</p><div class="tmeta"><b>${esc(r.title)}</b>${new Date(r.d+"-01T12:00:00").toLocaleDateString(loc,{month:"short",year:"numeric"})} · ${x[2]}</div><div class="ttags">${r.tags.map(g=>`<span>${esc(g)}</span>`).join("")}</div></div>`).join("")}</div></div></section>`};
+
+/* ===================== CONTENT TRANSLATIONS (FR / ES) =====================
+   Content is translated by matching the English text on screen. The arrays below follow the SAME ORDER as the list in SRC().
+   Projects are matched by slug in PTR: slug -> [[fr title, fr summary],[es title, es summary]]. Untranslated text simply stays in English. */
+const SRC=()=>{const P=SITE.profile,J=EXPERIENCE[0];return [SITE.title,SITE.intro,SITE.aboutIntro,...SITE.journey,...SITE.values.flat(),P.experience,P.location,P.education,P.languages,P.status,...SKILLS.map(c=>c.cat),J.role,J.sum,...J.pts,"· "+J.loc]};
+const XT={
+fr:["Spécialiste CRM & Automatisation et Développeur d'Agents IA",
+"Je conçois des systèmes CRM, des tunnels de vente, des automatisations marketing, des agents IA et des intégrations, en transformant les processus métier en systèmes automatisés fiables. Quatre ans d'expérience à distance sur GoHighLevel, Make, Zapier et n8n.",
+"Spécialiste CRM & Automatisation et Développeur d'Agents IA avec 4 ans d'expérience à distance, axé sur la transformation des processus métier en systèmes automatisés fiables.",
+"J'ai étudié l'informatique à l'Université d'Ibadan, où j'ai obtenu ma licence en 2023.",
+"Depuis 2022, je travaille à distance comme spécialiste CRM & Automatisation freelance : je conçois des systèmes CRM, pipelines, formulaires, workflows et séquences de nurturing pour des entreprises en ligne.",
+"L'essentiel de mon travail se fait sur GoHighLevel (HighLevel) : tunnels, pages de destination, workflows e-mail/SMS, flux de paiement, espaces membres et systèmes d'onboarding client.",
+"Je crée aussi des agents IA conversationnels et vocaux pour la qualification de leads, le support client, la prise de rendez-vous, le routage et le suivi, et je connecte les applications métier via Make.com, Zapier, n8n, webhooks, API et bases de données afin que les données clients restent synchronisées.",
+"Cartographie des workflows","Traduire les besoins métier en workflows techniques clairs avant de construire.",
+"Tests d'automatisation","Tester chaque automatisation et résoudre les problèmes avant la mise en production.",
+"Documentation","Documenter les processus pour que les clients comprennent et puissent maintenir leurs systèmes.",
+"Communication client","Travailler à distance et en autonomie tout en tenant les clients informés.",
+"4 ans","Lagos, Nigéria (à distance)","Licence en informatique, Université d'Ibadan (2023)","Anglais","Ouvert aux projets à distance",
+"CRM & Plateformes","Automatisation","IA","Ventes","Intégrations","Administration & Support",
+"Spécialiste CRM & Automatisation","Conception de systèmes CRM, tunnels, automatisations, agents IA et intégrations pour des entreprises en ligne.",
+"Conception et mise en place de systèmes CRM, pipelines, formulaires, workflows, automatisations, séquences de nurturing et processus de rendez-vous pour des entreprises en ligne",
+"Création de tunnels GoHighLevel, pages de destination, formulaires, pipelines, workflows e-mail/SMS, flux de paiement, espaces membres et systèmes d'onboarding client",
+"Développement et configuration d'agents IA conversationnels et vocaux pour la qualification de leads, le support client, la prise de rendez-vous, le routage et le suivi",
+"Connexion d'applications métier via Make.com, Zapier, n8n, webhooks, API et bases de données pour réduire le travail manuel et synchroniser les données clients",
+"Travail à distance avec les clients, traduction des besoins métier en workflows techniques, tests des automatisations, résolution des problèmes et documentation des processus",
+"· À distance"],
+es:["Especialista en CRM y Automatización y Desarrollador de Agentes de IA",
+"Construyo sistemas CRM, embudos de venta, automatizaciones de marketing, agentes de IA e integraciones, convirtiendo los procesos de negocio en sistemas automatizados y fiables. Cuatro años de experiencia remota con GoHighLevel, Make, Zapier y n8n.",
+"Especialista en CRM y Automatización y Desarrollador de Agentes de IA con 4 años de experiencia remota, enfocado en convertir los procesos de negocio en sistemas automatizados y fiables.",
+"Estudié Informática en la Universidad de Ibadán y me gradué con una licenciatura en 2023.",
+"Desde 2022 trabajo de forma remota como especialista freelance en CRM y Automatización, diseñando sistemas CRM, pipelines, formularios, flujos de trabajo y secuencias de nutrición de leads para negocios en línea.",
+"La mayor parte de mi trabajo es en GoHighLevel (HighLevel): embudos, páginas de aterrizaje, flujos de email/SMS, flujos de pago, membresías y sistemas de onboarding de clientes.",
+"También creo agentes de IA conversacionales y de voz para calificación de leads, atención al cliente, agendamiento de citas, enrutamiento y seguimiento, y conecto aplicaciones de negocio mediante Make.com, Zapier, n8n, webhooks, APIs y bases de datos para mantener sincronizados los datos de los clientes.",
+"Mapeo de flujos de trabajo","Traducir los requisitos del negocio en flujos técnicos claros antes de construir.",
+"Pruebas de automatización","Probar cada automatización y resolver los problemas antes de salir en vivo.",
+"Documentación","Documentar los procesos para que los clientes entiendan y puedan mantener sus sistemas.",
+"Comunicación con el cliente","Trabajar de forma remota e independiente manteniendo informados a los clientes.",
+"4 años","Lagos, Nigeria (remoto)","Licenciatura en Informática, Universidad de Ibadán (2023)","Inglés","Abierto a proyectos remotos",
+"CRM y Plataformas","Automatización","IA","Ventas","Integraciones","Administración y Soporte",
+"Especialista en CRM y Automatización","Creación de sistemas CRM, embudos, automatizaciones, agentes de IA e integraciones para negocios en línea.",
+"Diseño e implementación de sistemas CRM, pipelines, formularios, flujos de trabajo, automatizaciones, secuencias de nutrición y procesos de citas para negocios en línea",
+"Creación de embudos, páginas de aterrizaje, formularios, pipelines, flujos de email/SMS, flujos de pago, membresías y sistemas de onboarding en GoHighLevel",
+"Desarrollo y configuración de agentes de IA conversacionales y de voz para calificación de leads, atención al cliente, agendamiento de citas, enrutamiento y seguimiento",
+"Conexión de aplicaciones de negocio mediante Make.com, Zapier, n8n, webhooks, APIs y bases de datos para reducir el trabajo manual y mantener sincronizados los datos de los clientes",
+"Trabajo remoto con clientes, traducción de requisitos del negocio en flujos técnicos, pruebas de automatizaciones, resolución de problemas y documentación de procesos",
+"· Remoto"]};
+const PTR={
+"munoz-construction-website":[["Munoz Construction – Site web d’entrepreneur","Site web axé sur les demandes pour un entrepreneur général de Bayard (Nouveau-Mexique), avec boutons d’appel et de devis gratuit, services et avis."],["Munoz Construction – Sitio web de contratista","Sitio web orientado a solicitudes para un contratista general en Bayard, Nuevo México, con botones de llamada y presupuesto gratuito, servicios y reseñas."]],
+"dermatology-clinic-landing-page":[["Page de destination pour clinique de dermatologie avec popup d’offre et calendrier de réservation","Page de destination GoHighLevel avec popup d’offre de 10 %, services, FAQ et calendrier de réservation intégré."],["Página de destino para clínica dermatológica con ventana de oferta y calendario de reservas","Página de destino en GoHighLevel con ventana emergente de oferta del 10 %, servicios, preguntas frecuentes y calendario de reservas integrado."]],
+"eye-care-clinic-website":[["Site web pour clinique de soins de la vue","Site web GoHighLevel à plusieurs sections pour une clinique de soins de la vue : services, lunettes, galerie et formulaire de contact."],["Sitio web para clínica de cuidado visual","Sitio web de varias secciones en GoHighLevel para una clínica de cuidado visual, con servicios, lentes, galería y formulario de contacto."]],
+"roofing-company-website":[["Apex Roofing – Site web d’entreprise de toiture","Site web d’entreprise de toiture axé sur l’inspection gratuite, avec services, étapes du processus et formulaire de demande."],["Apex Roofing – Sitio web para empresa de techos","Sitio web de empresa de techos centrado en la inspección gratuita, con servicios, pasos del proceso y formulario de solicitud."]],
+"customer-followup-email-nurturing":[["Workflow automatisé de relance client et de nurturing par e-mail sur GoHighLevel","Workflow de relance par e-mail avec délais, branches selon les réponses et notifications internes pour garder un suivi régulier."],["Flujo automatizado de seguimiento de clientes y nutrición por email en GoHighLevel","Flujo de seguimiento por email con esperas, ramificación según la respuesta y notificaciones internas para mantener un seguimiento constante."]],
+"automated-lead-capture-nurturing":[["Système automatisé de capture et de nurturing de leads","Facebook Lead Ads et formulaires web alimentant un seul CRM GoHighLevel, avec étiquetage, pipelines et relances e-mail/SMS automatiques."],["Sistema automatizado de captación y nutrición de leads","Facebook Lead Ads y formularios web alimentando un solo CRM de GoHighLevel, con etiquetado, pipelines y seguimiento automático por email/SMS."]],
+"hvac-ai-lead-qualification":[["Qualification de leads IA et automatisation des rendez-vous HVAC sur GoHighLevel","Système de qualification couvrant le type de service, le problème, l'urgence, la gestion des urgences, la réservation et le suivi."],["Calificación de leads con IA y automatización de citas HVAC en GoHighLevel","Sistema de calificación que cubre tipo de servicio, problema, urgencia, manejo de emergencias, reservas y seguimiento."]],
+"coaching-onboarding-automation":[["Automatisation de l'onboarding de coaching sur GoHighLevel","Automatisation d'onboarding qui a réduit la charge de travail manuelle d'environ 50 %."],["Automatización de onboarding para coaching en GoHighLevel","Automatización de onboarding que redujo la carga de trabajo manual en aproximadamente un 50 %."]],
+"conversational-ai-lead-engagement":[["Système d'engagement de leads par IA conversationnelle","Automatisation conversationnelle conçue pour améliorer l'engagement des leads, avec une hausse déclarée d'environ 40 %."],["Sistema de interacción con leads mediante IA conversacional","Automatización conversacional diseñada para mejorar la interacción con los leads, con un aumento reportado de ~40 %."]],
+"voice-ai-roofing":[["Agent IA vocal – Toiture","Agent IA vocal pour les leads de toiture : couverture des appels 24h/24 et 7j/7, planification et routage."],["Agente de IA de voz – Techos","Agente de IA de voz para leads de techos, con cobertura de llamadas 24/7, agenda y enrutamiento."]],
+"hvac-followup-billing":[["Relances HVAC et automatisations de facturation client","Relances conditionnelles pour les leads HVAC non réservés et pipeline de facturation client basé sur les statuts."],["Seguimiento HVAC y automatizaciones de facturación de clientes","Seguimiento condicional para leads HVAC sin reserva y un pipeline de facturación basado en estados."]],
+"multi-platform-content-automation":[["Automatisation de contenu multiplateforme","Automatisation qui transforme du contenu source en vidéos sociales sous-titrées et planifie leur publication."],["Automatización de contenido multiplataforma","Automatización que convierte contenido fuente en videos sociales con subtítulos y programa su publicación."]],
+"conditional-followup-email-nurturing":[["Automatisation de relances conditionnelles et de nurturing par e-mail sur GoHighLevel","Workflow de nurturing par e-mail conditionnel utilisant des délais et une logique de branchement pour décider de la prochaine étape de chaque contact."],["Automatización de seguimiento condicional y nutrición por email en GoHighLevel","Flujo de nutrición por email condicional con esperas y lógica de ramificación para decidir el siguiente paso de cada contacto."]]};
+const TR={fr:{},es:{}};
+["fr","es"].forEach((l,k)=>{const src=SRC();src.forEach((x,i)=>{if(XT[l][i])TR[l][x]=XT[l][i]});PROJECTS.forEach(p=>{const m=PTR[p.slug];if(m){TR[l][p.t]=m[k][0];TR[l][p.d]=m[k][1]}})});
+function trDom(){const d=TR[lang];if(!d)return;const w=document.createTreeWalker(document.getElementById("app"),NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const v=d[n.nodeValue.trim()];if(v)n.nodeValue=v}}
+
+/* ===================== HELPERS ===================== */
+let lang="en", theme="dark";
+try{ lang=localStorage.getItem("lang")||"en"; theme=localStorage.getItem("theme")||"dark"; }catch(e){}
+document.documentElement.dataset.theme=theme;
+if(!["en","fr","es"].includes(lang))lang="en";
+const t=k=>T[lang][k];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ROUTES=["home","about","skills","experience","projects","blog","contact"];
+const ARROW='<svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const DL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>';
+const SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+
+/* brand-ish colours for tags, tiles and skill bars */
+const BRAND={"GoHighLevel":"#38bdf8","GoHighLevel (HighLevel)":"#38bdf8","Make.com":"#a855f7","Make":"#a855f7","Zapier":"#ff4a00","n8n":"#ea4b71","Stripe":"#635bff","Stripe / Payment Workflows":"#635bff","OpenAI Whisper":"#10a37f","Voice AI":"#f59e0b","Conversational AI":"#22c55e","Conversation AI":"#22c55e","Webhooks":"#c084fc","Git / GitHub":"#f05032","HTML / CSS":"#e34f26","JavaScript":"#f7df1e","Google Drive":"#1fa463","HubSpot":"#ff7a59","Zapier ":"#ff4a00"};
+const PAL=["#38bdf8","#22c55e","#f59e0b","#ef4444","#a855f7","#ec4899","#14b8a6","#eab308","#3b82f6","#f97316","#fafafa","#84cc16"];
+const hash=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return h};
+const colorOf=s=>BRAND[s]||PAL[hash(s)%PAL.length];
+const initials=s=>{const w=s.replace(/\(.*?\)/g,"").replace(/[^A-Za-z0-9 ]/g," ").trim().split(/\s+/);return (w.length>1?w[0][0]+w[1][0]:w[0].slice(0,2)).toUpperCase()};
+
+/* ===== ICONS: brand logos load from Simple Icons, general icons from Lucide (both free).
+   To use your own logo file, put it in images/icons/ and set {file:"images/icons/name.png"}. ===== */
+const ICONS={
+ "GoHighLevel":{file:"images/icons/gohighlevel.png",url:"https://www.google.com/s2/favicons?domain=gohighlevel.com&sz=128",lu:"layers"},"GoHighLevel (HighLevel)":{file:"images/icons/gohighlevel.png",url:"https://www.google.com/s2/favicons?domain=gohighlevel.com&sz=128",lu:"layers"},
+ "Make.com":{si:"make"},"Make":{si:"make"},"Zapier":{si:"zapier"},"n8n":{si:"n8n"},
+ "Stripe":{si:"stripe"},"Stripe / Payment Workflows":{si:"stripe"},"OpenAI Whisper":{si:"openai"},"Git / GitHub":{si:"github"},
+ "Google Drive":{si:"googledrive"},"HubSpot":{si:"hubspot"},"HTML / CSS":{si:"html5"},"JavaScript":{si:"javascript"},
+ "Facebook Lead Ads":{si:"facebook"},"Twilio":{si:"twilio",lu:"phone"},"Metricool":{lu:"chart-bar"},"JSON2Video":{lu:"clapperboard"},
+ "Conditional Logic":{lu:"workflow"},"Email Marketing Automation":{lu:"mail"},"Email Automation":{lu:"mail"},"Landing Pages":{lu:"layout-template"},"Website Design":{lu:"globe"},"Forms":{lu:"list-checks"},
+ "Webhooks":{lu:"webhook"},"Webhooks & APIs":{lu:"webhook"},"API Integrations":{lu:"plug"},"APIs":{lu:"plug"},
+ "Conversational AI":{lu:"messages-square"},"Conversation AI":{lu:"messages-square"},"Chat Widget":{lu:"message-square"},
+ "Voice AI":{lu:"headset"},"AI Agent Development":{lu:"bot"},"AI Agents":{lu:"bot"},"AI Automation Workflows":{lu:"sparkles"},"AI Employee":{lu:"bot"},
+ "Workflow Automation":{lu:"workflow"},"Workflows":{lu:"workflow"},"Marketing Automation":{lu:"megaphone"},
+ "Lead Generation & Nurturing":{lu:"magnet"},"Lead Nurturing":{lu:"magnet"},
+ "Appointment & Follow-up Automation":{lu:"calendar-check"},"Calendars":{lu:"calendar-check"},"Appointment Scheduling":{lu:"calendar-check"},
+ "CRM Architecture":{lu:"network"},"CRM & Pipelines":{lu:"kanban"},"Pipelines":{lu:"kanban"},"Pipeline Setup":{lu:"kanban"},
+ "Memberships & Courses":{lu:"graduation-cap"},"Memberships":{lu:"graduation-cap"},"Other CRM Platforms":{lu:"database"},"Databases":{lu:"database"},
+ "Sales Funnels":{lu:["funnel","filter"]},"Funnels":{lu:["funnel","filter"]},"Landing Pages":{lu:"layout-template"},"Quizzes":{lu:"list-checks"},
+ "Email / SMS Automation":{lu:"mail"},"Email":{lu:"mail"},"Email Sequences":{lu:"mail"},"SMS":{lu:"message-circle"},
+ "Virtual Assistance":{lu:"headset"},"Client Communication":{lu:"messages-square"},"Remote Collaboration":{lu:"globe"},
+ "Custom Fields":{lu:"list-plus"},"Tags":{lu:"tag"},"Billing":{lu:"receipt"},"Call Routing":{lu:"phone-forwarded"},"IVR":{lu:"phone-forwarded"},
+ "Phone System":{lu:"phone"},"Reputation":{lu:"star"},"Reviews":{lu:"star"},"Snapshots":{lu:"copy"},"Migration":{lu:"arrow-right-left"},
+ "Knowledge Base":{lu:"book-open"},"Ad Tracking":{lu:"target"},"Custom Code Elements":{lu:"code"},"Lead Handling":{lu:"inbox"},"CRM Automation":{lu:"kanban"},"Workflow Builder":{lu:"workflow"},"Email & SMS Automation":{lu:"mail"}
+};
+const iconSrcs=n=>{const m=ICONS[n]||{lu:"sparkles"},lus=m.lu?[].concat(m.lu):[],out=[];
+ if(m.file)out.push(m.file);
+ if(m.si)out.push(`images/icons/${m.si}.svg`);
+ lus.forEach(x=>out.push(`images/icons/lu-${x}.svg`));
+ if(m.url)out.push(m.url);
+ if(m.si)out.push(`https://cdn.simpleicons.org/${m.si}`);
+ lus.forEach(x=>out.push(`https://unpkg.com/lucide-static@latest/icons/${x}.svg`));
+ return out};
+document.addEventListener("error",e=>{const im=e.target;if(!(im instanceof HTMLImageElement)||!im.closest(".ico"))return;
+ const rest=(im.dataset.alt||"").split("|").filter(Boolean);
+ if(rest.length){im.dataset.alt=rest.slice(1).join("|");im.src=rest[0]}else im.closest(".ico").classList.add("fb")},true);
+const mono=s=>{const c=colorOf(s),src=iconSrcs(s);return `<span class="ico" style="--fc:${c}" title="${esc(s)}"><img src="${esc(src[0])}" data-alt="${esc(src.slice(1).join("|"))}" alt="" loading="lazy"><b>${esc(initials(s))}</b></span>`};
+const tags=(arr,max)=>{const s=max?arr.slice(0,max):arr,x=max?arr.length-max:0;return `<div class="tags">${s.map(v=>`<span class="tag">${mono(v)}${esc(v)}</span>`).join("")}${x>0?`<span class="tag n">+${x}</span>`:""}</div>`};
+const fmtDate=d=>new Date(d+"T00:00:00").toLocaleDateString(({fr:"fr-FR",es:"es-ES"}[lang]||"en-US"),{year:"numeric",month:"long",day:"numeric"});
+
+/* animated hero visual */
+const VIZ=()=>{const bars=[[34,38,92],[50,96,120],[66,20,70],[82,150,118],[100,54,64],[118,236,46],[136,12,40],[166,250,38],[184,30,58],[202,180,96],[220,60,130],[238,14,62],[254,140,104],[268,70,76]];
+ const sparks=[[66,150],[234,150],[150,58],[106,98],[196,206],[238,96]];
+ return `<div class="viz rv"><svg viewBox="0 0 300 300" aria-hidden="true">
+ <defs>
+  <linearGradient id="paneGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".18"/><stop offset="1" stop-color="var(--accent)" stop-opacity=".03"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <rect class="pane" x="46" y="46" width="208" height="208" rx="20"/>
+ ${bars.map(([x,y,h],i)=>`<rect class="vbar" x="${x}" y="${y}" width="${i%3?3.5:6}" height="${h}" rx="1.5" style="animation-delay:-${((i*0.61)%4.5).toFixed(2)}s"/>`).join("")}
+ <line class="spike" x1="150" y1="14" x2="150" y2="286"/>
+ <g class="spin3d">
+  <polygon class="outer" points="150,44 256,150 150,256 44,150"/>
+  <polygon class="mid" points="150,90 210,150 150,210 90,150"/>
+  <polygon class="core" points="150,120 180,150 150,180 120,150"/>
+  <polygon class="core2" points="150,131 169,150 150,169 131,150"/>
+ </g>
+ <ellipse class="orbit" cx="150" cy="150" rx="104" ry="20"/>
+ ${sparks.map(([x,y],i)=>`<polygon class="spark" points="${x},${y-6} ${x+6},${y} ${x},${y+6} ${x-6},${y}" style="animation-delay:-${(i*0.43).toFixed(2)}s"/>`).join("")}
+ </svg></div>`};
+
+/* project cover art (no external images allowed on this host) */
+const cover=(p,k)=>{if(p.img)return `<div class="cover"><img src="${esc(p.img)}" alt="${esc(p.t)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`;const c1=colorOf(p.tags[0]||p.t),c2=PAL[(k*5+3)%PAL.length],id="g"+k+p.slug.length;
+ const rnd=n=>{let s=hash(p.slug)+n*977;return ()=>{s=(s*16807)%2147483647;return s/2147483647}};const r=rnd(1);
+ const nodes=Array.from({length:14},()=>[20+r()*360,20+r()*200]);
+ const links=nodes.map((n,i)=>{const m=nodes[(i*7+3)%nodes.length];return `<line x1="${n[0]}" y1="${n[1]}" x2="${m[0]}" y2="${m[1]}" stroke="${c1}" stroke-opacity=".35" stroke-width="1"/>`}).join("");
+ return `<div class="cover"><svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">
+ <defs><radialGradient id="${id}" cx="${30+(k*17)%40}%" cy="${40+(k*13)%30}%" r="80%"><stop offset="0" stop-color="${c1}" stop-opacity=".55"/><stop offset=".5" stop-color="${c2}" stop-opacity=".18"/><stop offset="1" stop-color="#050507"/></radialGradient></defs>
+ <rect width="400" height="240" fill="#050507"/><rect width="400" height="240" fill="url(#${id})"/>
+ <g opacity=".6">${Array.from({length:20},(_,i)=>`<line x1="${i*20}" y1="0" x2="${i*20}" y2="240" stroke="#fff" stroke-opacity=".04"/>`).join("")}</g>
+ ${links}${nodes.map(([x,y],i)=>`<circle cx="${x}" cy="${y}" r="${i%4?2.2:4}" fill="${i%3?c1:"#fff"}" opacity="${i%4?.8:.95}"/>`).join("")}
+ <text x="22" y="218" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#fff" fill-opacity=".55" letter-spacing="2">${esc((p.tags[0]||"").toUpperCase())}</text>
+ </svg></div>`};
+
+const PHOTO=()=>SITE.photo?`<div class="hero-photo rv"><img src="${esc(SITE.photo)}" alt="${esc(SITE.name)}"></div>`:VIZ();
+const card=(p,k)=>`<article class="card rv">
+  <a class="thumb" href="#project-${p.slug}">${cover(p,k)}<span class="feat">${t("featured")}</span>${p.video?`<span class="vbadge">▶ ${t("video")}</span>`:""}</a>
+  <div class="cb"><h3><a href="#project-${p.slug}">${esc(p.t)}</a></h3><p>${esc(p.d)}</p>${tags(p.tags,4)}</div></article>`;
+const shead=(title,href,label)=>`<div class="shead rv"><h2>${title}</h2>${href?`<a class="vall" href="${href}">${label} →</a>`:""}</div>`;
+const ICO={status:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',email:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',phone:'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/>',exp:'<path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/>',loc:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',edu:'<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',langs:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/>'};
+const ic=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICO[k]}</svg>`;
+
+/* ===================== VIEWS ===================== */
+const V={
+ home:()=>`
+  <section class="hero"><div class="wrap hero-grid">
+    <div>
+      <p class="hi rv">${t("hi")} <b>${esc(SITE.name)}</b></p>
+      <h1 class="rv">${esc(SITE.title)}</h1>
+      <p class="lead rv">${esc(SITE.intro)}</p>
+      <div class="row rv"><a class="btn w" href="#projects">${t("vp")} →</a><a class="btn o" href="#contact">${t("git")}</a></div>
+    </div>
+    ${PHOTO()}
+  </div></section>
+  <section class="blk" style="padding-top:40px"><div class="wrap"><div class="resume rv">
+    <div><div class="lbl">${t("pdf")}</div><h3>${t("resume")}</h3><p>${t("resumeTxt")}</p></div>
+    <a class="btn a" href="${esc(SITE.resumeUrl)}" target="_blank" rel="noopener">${DL}${t("dl")}</a>
+  </div></div></section>
+  <hr class="div">
+  ${homeCats()}
+  <hr class="div">
+  ${testi()}
+  <hr class="div">
+  <section class="blk"><div class="wrap">
+    ${shead(t("cs"),"#skills",t("vas"))}
+    <div class="tiles">${HOME_SKILLS.map(s=>`<div class="tile rv" title="${esc(s)}">${mono(s)}<span>${esc(s)}</span></div>`).join("")}</div>
+  </div></section>
+  ${SITE.showBlog?`<hr class="div">
+  <section class="blk"><div class="wrap">
+    ${shead(t("rp"),"#blog",t("vapo"))}
+    <div class="rv">${POSTS.length?POSTS.slice(0,3).map(p=>`<a class="prow" href="#post-${p.slug}"><div><h3>${esc(p.t)}</h3><time>${fmtDate(p.date)}</time></div>${ARROW}</a>`).join(""):`<p class="empty">${t("noposts")}</p>`}</div>
+  </div></section>`:""}`,
+
+ about:()=>{const P=SITE.profile;return `<div class="page"><div class="wrap">
+  <div class="about-top">
+    <div><h1 class="ph1" style="margin-bottom:28px">${t("about")}</h1><p class="intro">${esc(SITE.aboutIntro)}</p></div>
+    ${PHOTO()}
+  </div>
+  <div class="about"><div>
+    <h2>${t("journey")}</h2>${SITE.journey.map(p=>`<p class="rv">${esc(p)}</p>`).join("")}
+    <h2 style="margin-top:44px">${t("values")}</h2>
+    <div class="values">${SITE.values.map(([h,d])=>`<div class="val rv"><h3>${esc(h)}</h3><p>${esc(d)}</p></div>`).join("")}</div>
+  </div>
+  <aside class="panel rv"><dl class="kv">
+    <div><dt>${ic("exp")}${t("exp")}</dt><dd>${esc(P.experience)}</dd></div>
+    <div><dt>${ic("loc")}${t("loc")}</dt><dd>${esc(P.location)}</dd></div>
+    <div><dt>${ic("edu")}${t("edu")}</dt><dd>${esc(P.education)}</dd></div>
+    <div><dt>${ic("langs")}${t("langs")}</dt><dd>${esc(P.languages)}</dd></div>
+    <div><dt>${ic("status")}${t("status")}</dt><dd>${esc(P.status)}</dd></div>
+    <div><dt>${ic("email")}${t("email")}</dt><dd><a href="mailto:${esc(P.email)}">${esc(P.email)}</a></dd></div>
+    <div><dt>${ic("phone")}${t("phone")}</dt><dd><a href="tel:${esc(P.phone.replace(/\s/g,""))}">${esc(P.phone)}</a></dd></div>
+  </dl><a class="dlcv" href="${esc(SITE.resumeUrl)}" target="_blank" rel="noopener">${DL}${t("cv")}</a></aside>
+  </div></div></div>`},
+
+ skills:()=>`<div class="page"><div class="wrap">
+  <div class="ph"><h1 class="ph1">${t("skills")}</h1><p class="sub">${t("skSub")}</p></div>
+  ${SKILLS.map(c=>`<div class="scat"><h2 class="rv">${esc(c.cat)}</h2>${c.items.map(([n,y,p])=>p!=null?`
+    <div class="sk rv"><div class="top"><span class="nm">${mono(n)}${esc(n)} <em>${y} ${t("yrs")}</em></span><span class="pc">${p}%</span></div><div class="bar"><i data-w="${p}" style="background:${colorOf(n)}"></i></div></div>`:`
+    <div class="sk plain rv"><div class="top" style="margin:0"><span class="nm">${mono(n)}${esc(n)}</span></div></div>`).join("")}</div>`).join("")}
+ </div></div>`,
+
+ experience:()=>`<div class="page"><div class="wrap">
+  <div class="ph"><h1 class="ph1">${t("exp")}</h1><p class="sub">${t("expSub")}</p></div>
+  ${EXPERIENCE.map(j=>{const d=`${esc(j.from)} — ${j.to==="Present"?t("present"):esc(j.to)}`;return `<div class="job rv">
+    <span class="dot"><span class="tip">${d} · ${esc(j.co)}</span></span>
+    <div class="jh"><h3>${esc(j.role)}</h3><span class="jd">${d}</span></div>
+    <div class="jm">${esc(j.co)} <span>· ${esc(j.loc)}</span></div>
+    <p>${esc(j.sum)}</p><ul>${j.pts.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>${tags(j.tags)}
+  </div>`}).join("")}
+ </div></div>`,
+
+ projects:()=>`<div class="page"><div class="wrap">
+  <div class="ph"><h1 class="ph1">${t("projects")}</h1><p class="sub">${t("prSub")}</p></div>
+  ${catBar()}${catGrid(pcat)}
+ </div></div>`,
+
+ project:slug=>{const k=PROJECTS.findIndex(p=>p.slug===slug);if(k<0)return V.nf();const p=PROJECTS[k];
+  const ovs=[].concat(p.ov||[]);
+  return `<div class="page"><div class="wrap narrow detail">
+  <a class="back" href="#projects">${t("back")}</a>
+  ${p.video?`<div class="hero-vid"><video src="${esc(p.video)}" ${(p.poster||p.img)?`poster="${esc(p.poster||p.img)}"`:""} ${p.sound?"":"autoplay muted loop"} playsinline controls preload="metadata"></video></div>`:`<div class="hero-img">${cover(p,k)}</div>`}
+  <h1>${esc(p.t)}</h1><p class="lede">${esc(p.d)}</p>
+  <div class="dsec" style="margin-top:0"><h2>${t("stack")}</h2>${tags(p.tags)}</div>
+  ${ovs.length?`<div class="dsec"><h2>${t("overview")}</h2>${ovs.map(x=>`<p>${esc(x)}</p>`).join("")}</div>`:""}
+  ${p.full?`<div class="dsec"><h2>${({fr:"Aperçu de la page complète",es:"Vista previa de la página completa"}[lang])||"Full page preview"}</h2><div class="fullshot"><img src="${esc(p.full)}" alt="${esc(p.t)}"></div></div>`:""}
+  ${p.impl?`<div class="dsec"><h2>${t("impl")}</h2><ul class="impl">${p.impl.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+  ${p.role?`<div class="dsec"><h2>${t("role")}</h2><p>${esc(p.role)}</p></div>`:""}
+  ${p.ch?`<div class="dsec"><h2>${t("cs2")}</h2><p>${esc(p.ch)}</p></div>`:""}
+  ${p.outcome?`<div class="dsec"><h2>${t("outcome")}</h2><p>${esc(p.outcome)}</p></div>`:""}
+ </div></div>`},
+
+ blog:()=>`<div class="page"><div class="wrap narrow">
+  <div class="ph"><h1 class="ph1">${t("blog")}</h1><p class="sub">${t("blSub")}</p></div>
+  ${POSTS.length?"":`<p class="empty">${t("noposts")}</p>`}
+  ${POSTS.map(p=>`<a class="pi rv" href="#post-${p.slug}"><div><time>${fmtDate(p.date)}</time><h3>${esc(p.t)}</h3><p>${esc(p.ex)}</p>${tags(p.tags)}</div>${ARROW}</a>`).join("")}
+ </div></div>`,
+
+ post:slug=>{const p=POSTS.find(x=>x.slug===slug);if(!p)return V.nf();
+  const inline=s=>esc(s).replace(/`([^`]+)`/g,"<code>$1</code>");
+  return `<div class="page"><div class="wrap narrow article">
+  <a class="back" href="#blog">${t("backBlog")}</a>
+  <div style="color:var(--muted);font-size:14px">${fmtDate(p.date)}</div>
+  <h1 class="ph1" style="margin:8px 0 12px">${esc(p.t)}</h1>
+  <p class="lede" style="margin-top:0">${esc(p.ex)}</p>${tags(p.tags)}
+  <hr><p>${inline(p.intro||"")}</p><hr>
+  ${(p.sections||[]).map(([h,txt,code])=>`<h2>${esc(h)}</h2><p>${inline(txt)}</p>${code?`<pre><code>${esc(code)}</code></pre>`:""}`).join("")}
+  <p class="byline">${t("by")} <b>${esc(SITE.name)}</b></p>
+ </div></div>`},
+
+ contact:()=>`<div class="page"><div class="wrap">
+  <div class="ph"><h1 class="ph1">${t("contact")}</h1><p class="sub">${t("ctSub")}</p></div>
+  <form id="cf" novalidate>
+    <div data-f="name"><label for="f-name">${t("name")} *</label><input id="f-name" name="name" autocomplete="name" placeholder="${t("phName")}"><div class="err">${t("req")}</div></div>
+    <div data-f="email"><label for="f-email">${t("email")} *</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="${t("phEmail")}"><div class="err">${t("req")}</div></div>
+    <div data-f="message"><label for="f-msg">${t("msg")} *</label><textarea id="f-msg" name="message" placeholder="${t("phMsg")}"></textarea><div class="err">${t("req")}</div></div>
+    <div><button class="btn w" type="submit" id="sb">${t("send")}</button></div>
+  </form>
+  <div class="ok" id="ok"><p id="okmsg">${t("okSent")}</p><div id="fb" style="display:none"><p style="margin-top:4px;font-size:13px;color:var(--muted)">${t("fail")}</p><div class="row" style="margin-top:10px"><a class="btn o" id="gm" target="_blank" rel="noopener">${t("gmail")}</a><a class="btn o" id="wa" target="_blank" rel="noopener">${t("wa")}</a><button class="btn o" id="cp" type="button">${t("copy")}</button></div><p style="margin-top:12px;font-size:13px;color:var(--muted)">${t("orEmail")} <a href="mailto:${esc(SITE.contactEmail)}" style="color:var(--fg);font-weight:600">${esc(SITE.contactEmail)}</a></p></div></div>
+ </div></div>`,
+
+ nf:()=>`<div class="page"><div class="wrap" style="text-align:center;padding:80px 0"><h1 class="ph1">404</h1><p class="sub">${t("nf")}</p><p style="margin-top:24px"><a class="btn w" href="#home">${t("home")}</a></p></div></div>`
+};
+
+function bindContact(){
+  const f=document.getElementById("cf");if(!f)return;
+  f.onsubmit=async e=>{
+    e.preventDefault();let ok=true;
+    f.querySelectorAll("[data-f]").forEach(w=>{
+      const el=w.querySelector("input,textarea"),v=el.value.trim(),er=w.querySelector(".err");
+      let bad=!v;
+      if(!bad&&el.type==="email"&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){bad=true;er.textContent=t("bademail")}else er.textContent=t("req");
+      w.classList.toggle("bad",bad);if(bad)ok=false;
+    });
+    if(!ok)return;
+    const data=Object.fromEntries(new FormData(f));
+    const subject=`Portfolio enquiry from ${data.name}`;
+    const body=`Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}\n\n(Sent from ${SITE.name}'s portfolio contact form)`;
+    const sb=document.getElementById("sb");sb.disabled=true;sb.textContent=t("sending");
+    let sent=false;
+    try{
+      const ctl=new AbortController();const tm=setTimeout(()=>ctl.abort(),12000);
+      const r=await fetch(`https://formsubmit.co/ajax/${SITE.contactEmail}`,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({name:data.name,email:data.email,message:data.message,_subject:subject,_template:"table",_replyto:data.email}),signal:ctl.signal});
+      clearTimeout(tm);const j=await r.json().catch(()=>({}));sent=r.ok&&String(j.success)!=="false";
+    }catch(err){sent=false}
+    if(SITE.formWebhook){try{fetch(SITE.formWebhook,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})}catch(err){}}
+    if(!sent){
+      const to=encodeURIComponent(SITE.contactEmail),su=encodeURIComponent(subject),bd=encodeURIComponent(body);
+      document.getElementById("okmsg").style.display="none";document.getElementById("fb").style.display="block";
+      document.getElementById("gm").href=`https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${su}&body=${bd}`;
+      document.getElementById("wa").href=`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(subject+"\n\n"+data.message)}`;
+      document.getElementById("cp").onclick=async e2=>{try{await navigator.clipboard.writeText(`To: ${SITE.contactEmail}\nSubject: ${subject}\n\n${body}`);e2.target.textContent=t("copied")}catch(err){}};
+    }
+    f.style.display="none";document.getElementById("ok").style.display="block";
+  };
+}
+
+function render(){
+  const h=(location.hash||"#home").slice(1);let view,active;
+  if(!SITE.showBlog&&(h==="blog"||h.startsWith("post-"))){location.hash="#home";return}
+  if(h.startsWith("project-")){view=V.project(h.slice(8));active="projects"}
+  else if(h.startsWith("post-")){view=V.post(h.slice(5));active="blog"}
+  else if(ROUTES.includes(h)){view=V[h]();active=h}
+  else{view=V.nf();active=""}
+  document.getElementById("app").innerHTML=view;
+  document.getElementById("menu").innerHTML=ROUTES.map((r,i)=>(r==="blog"&&!SITE.showBlog)?"":`<a href="#${r}" class="${r===active?"on":""}">${t("nav")[i]}</a>`).join("");
+  document.getElementById("flinks").innerHTML=["about","skills","projects","blog","contact"].filter(r=>r!=="blog"||SITE.showBlog).map(r=>`<a href="#${r}">${t("nav")[ROUTES.indexOf(r)]}</a>`).join("");
+  document.getElementById("lang").value=lang;
+  document.getElementById("theme").innerHTML=theme==="dark"?SUN:MOON;
+  document.getElementById("logo").textContent=SITE.initials;
+  document.getElementById("fname").textContent=SITE.name;
+  document.getElementById("fbuilt").textContent=t("built");
+  document.getElementById("fcopy").textContent=`© ${new Date().getFullYear()} ${SITE.name}. ${t("rights")}`;
+  document.documentElement.lang=lang;
+  document.title=active&&active!=="home"?`${document.querySelector(".ph1,.detail h1")?.textContent||""} | ${SITE.name}`:`${SITE.name} | ${SITE.title}`;
+  window.scrollTo({top:0,behavior:"instant"});
+  trDom();bindContact();observe();
+}
+
+let io;
+function observe(){
+  io&&io.disconnect();
+  io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
+    e.target.classList.add("in");
+    e.target.querySelectorAll(".bar i").forEach(b=>b.style.width=b.dataset.w+"%");
+    io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll(".rv").forEach((el,i)=>{el.style.transitionDelay=(i%3)*70+"ms";io.observe(el)});
+}
+
+document.getElementById("lang").onchange=e=>{lang=e.target.value;try{localStorage.setItem("lang",lang)}catch(err){}render()};
+document.getElementById("theme").onclick=()=>{theme=theme==="dark"?"light":"dark";document.documentElement.dataset.theme=theme;try{localStorage.setItem("theme",theme)}catch(e){}document.getElementById("theme").innerHTML=theme==="dark"?SUN:MOON};
+const menu=document.getElementById("menu");
+document.getElementById("burger").onclick=()=>menu.classList.toggle("open");
+menu.addEventListener("click",()=>menu.classList.remove("open"));
+addEventListener("hashchange",render);
+render();
+</script>
+</body>
+</html>
